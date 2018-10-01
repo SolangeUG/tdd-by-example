@@ -15,6 +15,7 @@ class Dollar {
         return new Dollar(amount * multiplier);
     }
 
+    @Override
     public boolean equals(Object object) {
         Dollar other = (Dollar) object;
         return amount == other.amount;
