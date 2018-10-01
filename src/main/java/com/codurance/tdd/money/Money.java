@@ -11,6 +11,6 @@ class Money {
     public boolean equals(Object object) {
         Money money = (Money) object;
         return amount == money.amount
-                && getClass() == money.getClass();
+                && getClass().equals(money.getClass());
     }
 }

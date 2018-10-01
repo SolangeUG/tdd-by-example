@@ -19,16 +19,14 @@ class DollarShould {
     @DisplayName("multiply an amount by a number and receive an amount")
     void multiply_an_amount_by_a_number_and_receive_an_amount() {
         Dollar five = new Dollar(5);
-        Dollar product = five.times(2);
-        assertEquals(product, new Dollar(10));
+        assertEquals(new Dollar(10), five.times(2));
     }
 
     @Test
     @DisplayName("not have any side effects")
     void not_have_any_side_effects() {
         Dollar five = new Dollar(5);
-        Dollar product = five.times(3);
-        assertEquals(new Dollar(15), product);
+        assertEquals(new Dollar(15), five.times(3));
         assertEquals(new Dollar(5), five);
     }
 
