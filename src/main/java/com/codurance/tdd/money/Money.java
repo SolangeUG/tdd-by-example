@@ -39,4 +39,10 @@ abstract class Money {
      * @return a Money instance with multiplied amount
      */
     abstract Money times(int multiplier);
+
+    /**
+     * Introduce notion of currency
+     * @return currency
+     */
+    abstract String currency();
 }

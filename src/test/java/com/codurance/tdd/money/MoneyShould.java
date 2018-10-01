@@ -58,4 +58,11 @@ class MoneyShould {
     void make_sure_same_amounts_in_different_currencies_are_not_equal() {
         assertNotEquals(Money.dollar(5), Money.franc(5));
     }
+
+    @Test
+    @DisplayName("return correct currency for given money")
+    void return_correct_currency_for_money() {
+        assertEquals("USD", Money.dollar(4).currency());
+        assertEquals("CHF", Money.franc(4).currency());
+    }
 }
