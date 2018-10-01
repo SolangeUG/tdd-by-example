@@ -9,6 +9,17 @@ abstract class Money {
     String currency;
 
     /**
+     * Move the constructor to the superclass,
+     * now that constructors in both subclasses are identical
+     * @param amount amount
+     * @param currency currency
+     */
+    Money(int amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
+
+    /**
      * Factory method to reduce direct references to Dollar subclass
      * @param amount amount
      * @return a Dollar instance with the specified amount
