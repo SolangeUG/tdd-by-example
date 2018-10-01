@@ -45,4 +45,12 @@ class DollarShould {
         Dollar six = new Dollar(6);
         assertThat(five.equals(six), is(false));
     }
+
+    @Test
+    @DisplayName("multiply an amount in francs and receive an amount in francs")
+    void multiply_an_amount_in_francs_and_receive_an_amount_in_francs() {
+        Franc cinq = new Franc(5);
+        assertEquals(new Franc(10), cinq.times(2));
+        assertEquals(new Franc(15), cinq.times(3));
+    }
 }
