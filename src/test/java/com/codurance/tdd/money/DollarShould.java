@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /**
  * @author Solange
@@ -52,5 +54,11 @@ class DollarShould {
         Franc cinq = new Franc(5);
         assertEquals(new Franc(10), cinq.times(2));
         assertEquals(new Franc(15), cinq.times(3));
+    }
+
+    @Test
+    @DisplayName("make sure same amounts in different currencies are not equal")
+    void make_sure_same_amounts_in_different_currencies_are_not_equal() {
+        assertNotEquals(new Dollar(5), new Franc(5));
     }
 }
