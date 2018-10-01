@@ -6,6 +6,7 @@ package com.codurance.tdd.money;
 abstract class Money {
 
     int amount;
+    String currency;
 
     /**
      * Factory method to reduce direct references to Dollar subclass
@@ -13,7 +14,7 @@ abstract class Money {
      * @return a Dollar instance with the specified amount
      */
     static Money dollar(int amount) {
-        return new Dollar(amount);
+        return new Dollar(amount, "USD");
     }
 
     /**
@@ -22,7 +23,7 @@ abstract class Money {
      * @return a Franc instance with the specified amount
      */
     static Money franc(int amount) {
-        return new Franc(amount);
+        return new Franc(amount, "CHF");
     }
 
     @Override
@@ -44,5 +45,7 @@ abstract class Money {
      * Introduce notion of currency
      * @return currency
      */
-    abstract String currency();
+    String currency() {
+        return currency;
+    }
 }

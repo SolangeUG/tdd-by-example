@@ -5,17 +5,13 @@ package com.codurance.tdd.money;
  */
 class Dollar extends Money {
 
-    Dollar(int amount) {
+    Dollar(int amount, String currency) {
         this.amount = amount;
+        this.currency = currency;
     }
 
     Money times(int multiplier) {
-        return new Dollar(amount * multiplier);
-    }
-
-    @Override
-    String currency() {
-        return "USD";
+        return Money.dollar(amount * multiplier);
     }
 
 }
