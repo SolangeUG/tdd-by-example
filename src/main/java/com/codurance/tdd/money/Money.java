@@ -3,7 +3,7 @@ package com.codurance.tdd.money;
 /**
  * @author Solange
  */
-class Money {
+abstract class Money {
 
     int amount;
 
@@ -22,4 +22,12 @@ class Money {
         return amount == money.amount
                 && getClass().equals(money.getClass());
     }
+
+    /**
+     * In order to further reduce references to subclasses,
+     * introduce this abstract method and have it be called.
+     * @param multiplier multiplier
+     * @return a Money instance with multiplied amount
+     */
+    abstract Money times(int multiplier);
 }
