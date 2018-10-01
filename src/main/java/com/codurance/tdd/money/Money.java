@@ -8,12 +8,21 @@ abstract class Money {
     int amount;
 
     /**
-     * Factory method to reduce direct references to subclasses
+     * Factory method to reduce direct references to Dollar subclass
      * @param amount amount
      * @return a Dollar instance with the specified amount
      */
-    static Dollar dollar(int amount) {
+    static Money dollar(int amount) {
         return new Dollar(amount);
+    }
+
+    /**
+     * Factory method to reduce direct references to Franc subclass
+     * @param amount amount
+     * @return a Franc instance with the specified amount
+     */
+    static Money franc(int amount) {
+        return new Franc(amount);
     }
 
     @Override

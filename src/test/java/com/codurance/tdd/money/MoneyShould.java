@@ -48,14 +48,14 @@ class MoneyShould {
     @Test
     @DisplayName("multiply an amount in francs and receive an amount in francs")
     void multiply_an_amount_in_francs_and_receive_an_amount_in_francs() {
-        Franc cinq = new Franc(5);
-        assertEquals(new Franc(10), cinq.times(2));
-        assertEquals(new Franc(15), cinq.times(3));
+        Money cinq = Money.franc(5);
+        assertEquals(Money.franc(10), cinq.times(2));
+        assertEquals(Money.franc(15), cinq.times(3));
     }
 
     @Test
     @DisplayName("make sure same amounts in different currencies are not equal")
     void make_sure_same_amounts_in_different_currencies_are_not_equal() {
-        assertNotEquals(Money.dollar(5), new Franc(5));
+        assertNotEquals(Money.dollar(5), Money.franc(5));
     }
 }
