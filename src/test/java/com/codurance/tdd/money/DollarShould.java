@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Solange
@@ -17,7 +18,7 @@ class DollarShould {
     void multiply_an_amount_by_a_number_and_receive_an_amount() {
         Dollar five = new Dollar(5);
         Dollar product = five.times(2);
-        assertThat(product.amount, is(10));
+        assertEquals(product, new Dollar(10));
     }
 
     @Test
@@ -25,8 +26,8 @@ class DollarShould {
     void not_have_any_side_effects() {
         Dollar five = new Dollar(5);
         Dollar product = five.times(3);
-        assertThat(product.amount, is(15));
-        assertThat(five.amount, is(5));
+        assertEquals(new Dollar(15), product);
+        assertEquals(new Dollar(5), five);
     }
 
     @Test

@@ -4,7 +4,8 @@ package com.codurance.tdd.money;
  * @author Solange
  */
 class Dollar {
-    int amount;
+
+    private int amount;
 
     Dollar(int amount) {
         this.amount = amount;
