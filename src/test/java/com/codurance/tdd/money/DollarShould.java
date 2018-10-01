@@ -28,4 +28,20 @@ class DollarShould {
         assertThat(product.amount, is(15));
         assertThat(five.amount, is(5));
     }
+
+    @Test
+    @DisplayName("make sure same amounts are equal")
+    void make_sure_same_amounts_are_equal() {
+        Dollar five = new Dollar(5);
+        Dollar anotherFive = new Dollar(5);
+        assertThat(five.equals(anotherFive), is(true));
+    }
+
+    @Test
+    @DisplayName("make sure different amounts are not equal")
+    void make_sure_different_amounts_are_not_equal() {
+        Dollar five = new Dollar(5);
+        Dollar six = new Dollar(6);
+        assertThat(five.equals(six), is(false));
+    }
 }
