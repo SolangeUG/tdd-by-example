@@ -10,7 +10,10 @@ class Franc extends Money {
     }
 
     Money times(int multiplier) {
-        return Money.franc(amount * multiplier);
+        // take a step further in refactoring both "times" methods in
+        // subclasses to be as similar as possible, so that we can
+        // then move it up into the Money superclass
+        return new Franc(amount * multiplier, currency);
     }
 
 }
