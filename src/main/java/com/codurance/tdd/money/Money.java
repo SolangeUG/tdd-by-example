@@ -3,7 +3,7 @@ package com.codurance.tdd.money;
 /**
  * @author Solange
  */
-class Money {
+class Money implements Expression {
 
     int amount;
     String currency;
@@ -80,7 +80,7 @@ class Money {
      * @param addend money to be add
      * @return resulting amount of money
      */
-    Money plus(Money addend) {
+    Expression plus(Money addend) {
          return new Money(amount + addend.amount, currency);
     }
 }
