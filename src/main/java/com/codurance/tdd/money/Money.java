@@ -51,7 +51,9 @@ class Money {
      * @return a Money instance with multiplied amount
      */
     Money times(int multiplier) {
-        return null;
+        // Now that both times() methods in subclasses are identical,
+        // let's push it up in here.
+        return new Money(amount * multiplier, currency);
     }
 
     /**
