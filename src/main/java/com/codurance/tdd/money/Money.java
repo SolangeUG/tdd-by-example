@@ -25,7 +25,8 @@ class Money {
      * @return a Dollar instance with the specified amount
      */
     static Money dollar(int amount) {
-        return new Dollar(amount, "USD");
+        // replace reference to subclass without changing meaning of code
+        return new Money(amount, "USD");
     }
 
     /**
@@ -34,7 +35,8 @@ class Money {
      * @return a Franc instance with the specified amount
      */
     static Money franc(int amount) {
-        return new Franc(amount, "CHF");
+        // replace reference to subclass without changing meaning of code
+        return new Money(amount, "CHF");
     }
 
     @Override

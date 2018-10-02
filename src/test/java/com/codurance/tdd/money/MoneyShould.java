@@ -7,7 +7,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Solange
@@ -67,9 +66,16 @@ class MoneyShould {
         assertEquals("CHF", Money.franc(4).currency());
     }
 
+    /*
+     The following test is not necessary anymore as we're replacing
+     references to subclasses with the superclass without changing
+     the meaning of the code, and testing equality is fully covered in earlier
+     tests.
+
     @Test
     @DisplayName("be true when comparing francs and money of same amount")
     void be_true_when_comparing_francs_and_money_of_same_amount() {
         assertEquals(new Money(10, "CHF"), new Franc(10, "CHF"));
     }
+    */
 }
