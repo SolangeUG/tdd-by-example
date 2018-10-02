@@ -16,7 +16,10 @@ class Franc extends Money {
 
         // However, as this breaks our tests, let's backtrack a bit,
         // make the tests green again, before (re)introducing this change.
-        return new Franc(amount * multiplier, currency);
+
+        // After refactoring the equals() method in the superclass, we're
+        // now ready to return an instance of Money here.
+        return new Money(amount * multiplier, currency);
     }
 
 }
