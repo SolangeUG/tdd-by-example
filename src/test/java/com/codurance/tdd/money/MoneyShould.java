@@ -78,4 +78,11 @@ class MoneyShould {
         assertEquals(new Money(10, "CHF"), new Franc(10, "CHF"));
     }
     */
+
+    @Test
+    @DisplayName("add two amounts of money and receive resulting amount of money")
+    void add_two_amounts_of_money_and_receive_an_amount_of_money() {
+        Money sum = Money.dollar(5).plus(Money.dollar(5));
+        assertEquals(Money.dollar(10), sum);
+    }
 }

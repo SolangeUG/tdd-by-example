@@ -74,4 +74,13 @@ class Money {
         // this case as the tests are already RED anyway.
         return amount + " " + currency;
     }
+
+    /**
+     * Add an amount of money to this amount
+     * @param addend money to be add
+     * @return resulting amount of money
+     */
+    Money plus(Money addend) {
+         return new Money(amount + addend.amount, currency);
+    }
 }
