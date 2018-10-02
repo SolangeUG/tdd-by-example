@@ -81,6 +81,8 @@ class Money implements Expression {
      * @return resulting amount of money
      */
     Expression plus(Money addend) {
-         return new Money(amount + addend.amount, currency);
+        // ensure that the addition of two Money.s
+        // returns a Sum
+        return new Sum(this, addend);
     }
 }

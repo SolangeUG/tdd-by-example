@@ -6,6 +6,9 @@ package com.codurance.tdd.money;
 class Bank {
 
     Money reduce(Expression source, String to) {
-        return Money.dollar(10);
+        Sum sum = (Sum) source;
+        int amount = ((Sum) source).augend.amount
+                        + ((Sum) source).addend.amount;
+        return new Money(amount, to);
     }
 }

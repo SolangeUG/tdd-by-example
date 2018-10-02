@@ -83,7 +83,8 @@ class MoneyShould {
     @DisplayName("add two amounts of money and receive resulting amount of money")
     void add_two_amounts_of_money_and_receive_an_amount_of_money() {
         Expression sum = Money.dollar(5).plus(Money.dollar(5));
-        assertEquals(Money.dollar(10), sum);
+        int amount = ((Sum) sum).augend.amount + ((Sum) sum).addend.amount;
+        assertEquals(Money.dollar(10).amount, amount);
     }
 
     @Test
@@ -95,4 +96,25 @@ class MoneyShould {
         Money reduced = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(10), reduced);
     }
+
+    @Test
+    @DisplayName("make sure plus() returns a sum")
+    void make_sure_plus_returns_a_sum() {
+        Money five = Money.dollar(5);
+        Expression result = five.plus(five);
+        Sum sum = (Sum) result;
+        assertEquals(five, sum.augend);
+        assertEquals(five, sum.addend);
+    }
+
+    @Test
+    @DisplayName("return correct reduced sum in currency of choice")
+    void return_correct_reduced_sum_in_currency_of_choice() {
+        Expression sum = new Sum(Money.dollar(4), Money.dollar(3));
+        Bank bank = new Bank();
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(7), result);
+    }
+
+
 }
