@@ -3,7 +3,7 @@ package com.codurance.tdd.money;
 /**
  * @author Solange
  */
-abstract class Money {
+class Money {
 
     int amount;
     String currency;
@@ -46,11 +46,13 @@ abstract class Money {
 
     /**
      * In order to further reduce references to subclasses,
-     * introduce this abstract method and have it be called.
+     * turn the times abstract method into a concrete one.
      * @param multiplier multiplier
      * @return a Money instance with multiplied amount
      */
-    abstract Money times(int multiplier);
+    Money times(int multiplier) {
+        return null;
+    }
 
     /**
      * Introduce notion of currency
@@ -58,5 +60,14 @@ abstract class Money {
      */
     String currency() {
         return currency;
+    }
+
+    @Override
+    public String toString() {
+        // as toString() is used for debugging reasons,
+        // it's OK to add it to our implementation without
+        // adding a test first! This exception is allowed in
+        // this case as the tests are already RED anyway.
+        return amount + " " + currency;
     }
 }
