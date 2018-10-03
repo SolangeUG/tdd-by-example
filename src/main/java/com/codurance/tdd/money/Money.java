@@ -52,7 +52,8 @@ class Money implements Expression {
      * @param multiplier multiplier
      * @return a Money instance with multiplied amount
      */
-    Money times(int multiplier) {
+    // Let's start generalizing and working with Expressions
+    Expression times(int multiplier) {
         // Now that both times() methods in subclasses are identical,
         // let's push it up in here.
         return new Money(amount * multiplier, currency);
@@ -80,7 +81,8 @@ class Money implements Expression {
      * @param addend money to be add
      * @return resulting amount of money
      */
-    Expression plus(Money addend) {
+    // Let's start generalizing and working with Expressions
+    public Expression plus(Expression addend) {
         // ensure that the addition of two Money.s
         // returns a Sum
         return new Sum(this, addend);

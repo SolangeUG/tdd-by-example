@@ -5,10 +5,11 @@ package com.codurance.tdd.money;
  */
 class Sum implements Expression {
 
-    Money augend;
-    Money addend;
+    // Let's start generalizing and working with Expressions
+    Expression augend;
+    Expression addend;
 
-    Sum (Money augend, Money addend) {
+    Sum (Expression augend, Expression addend) {
         this.augend = augend;
         this.addend = addend;
     }
@@ -24,5 +25,10 @@ class Sum implements Expression {
         int amount = augend.reduce(bank, to).amount
                         + addend.reduce(bank, to).amount;
         return new Money(amount, to);
+    }
+
+    @Override
+    public Expression plus(Expression addend) {
+        return new Sum(this, addend);
     }
 }
