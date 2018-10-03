@@ -53,7 +53,7 @@ class Money implements Expression {
      * @return a Money instance with multiplied amount
      */
     // Let's start generalizing and working with Expressions
-    Expression times(int multiplier) {
+    public Expression times(int multiplier) {
         // Now that both times() methods in subclasses are identical,
         // let's push it up in here.
         return new Money(amount * multiplier, currency);

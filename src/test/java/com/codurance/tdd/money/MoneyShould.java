@@ -163,5 +163,17 @@ class MoneyShould {
         assertEquals(Money.dollar(15), result);
     }
 
+    @Test
+    @DisplayName("handle sum multiplication ")
+    void handle_sum_multiplication() {
+        Expression fiveDollars = Money.dollar(5);
+        Expression dixFrancs = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Expression sum = new Sum(fiveDollars, dixFrancs);
+        Expression result = bank.reduce(sum.times(2), "USD");
+        assertEquals(Money.dollar(20), result);
+    }
+
 
 }
