@@ -139,5 +139,16 @@ class MoneyShould {
         assertEquals(1, new Bank().rate("USD", "USD"));
     }
 
+    @Test
+    @DisplayName("return correct amount when adding different currencies")
+    void return_correct_amount_when_adding_different_currencies() {
+        Money fiveDollars = Money.dollar(5);
+        Money dixFrancs = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Money result = bank.reduce(fiveDollars.plus(dixFrancs), "USD");
+        assertEquals(Money.dollar(10), result);
+    }
+
 
 }
