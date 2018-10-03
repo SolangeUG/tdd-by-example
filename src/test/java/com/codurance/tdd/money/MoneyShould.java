@@ -116,5 +116,13 @@ class MoneyShould {
         assertEquals(Money.dollar(7), result);
     }
 
+    @Test
+    @DisplayName("return correct reduced money in currency of choice")
+    void return_correct_reduced_money_in_currency_of_choice() {
+        Bank bank = new Bank();
+        Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
+    }
+
 
 }

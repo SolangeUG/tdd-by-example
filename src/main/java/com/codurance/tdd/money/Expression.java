@@ -5,6 +5,6 @@ package com.codurance.tdd.money;
  */
 interface Expression {
 
-
+    Money reduce(String to);
 
 }
