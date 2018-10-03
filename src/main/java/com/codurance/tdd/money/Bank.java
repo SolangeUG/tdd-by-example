@@ -35,6 +35,12 @@ class Bank {
 
         @Override
         public boolean equals(Object obj) {
+            if (obj == null)
+                return false;
+
+            if (Bank.this.getClass() != obj.getClass())
+                return false;
+
             Pair pair = (Pair) obj;
             return from.equals(pair.from)
                     && to.equals(pair.to);

@@ -6,7 +6,7 @@ package com.codurance.tdd.money;
 class Money implements Expression {
 
     int amount;
-    String currency;
+    private String currency;
 
     /**
      * Move the constructor to the superclass,
@@ -41,6 +41,12 @@ class Money implements Expression {
 
     @Override
     public boolean equals(Object object) {
+        if (object == null)
+            return false;
+
+        if (getClass() != object.getClass())
+            return false;
+
         Money money = (Money) object;
         return amount == money.amount
                 && currency().equals(money.currency());
