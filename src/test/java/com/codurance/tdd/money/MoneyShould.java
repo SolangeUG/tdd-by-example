@@ -124,5 +124,20 @@ class MoneyShould {
         assertEquals(Money.dollar(1), result);
     }
 
+    @Test
+    @DisplayName("reduce money into different currency")
+    void reduce_money_into_different_currency() {
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Money result = bank.reduce(Money.franc(2), "USD");
+        assertEquals(Money.dollar(1), result);
+    }
+
+    @Test
+    @DisplayName("return identity rate for same currency")
+    void return_identity_rate_for_same_currency() {
+        assertEquals(1, new Bank().rate("USD", "USD"));
+    }
+
 
 }

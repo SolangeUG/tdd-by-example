@@ -20,7 +20,7 @@ class Sum implements Expression {
      * @return the reduced money in the currency of choice
      */
     @Override
-    public Money reduce(String to) {
+    public Money reduce(Bank bank, String to) {
         int amount = augend.amount + addend.amount;
         return new Money(amount, to);
     }
